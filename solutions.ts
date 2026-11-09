@@ -1,11 +1,8 @@
-
-export {};
 const multiplyValue = (value: number, multiplier: number = 2): number => {
 
     return value * multiplier;
 }
 
-// console.log(multiplyValue(5,0));
 
 
 const processInput = (value: string | number | boolean): string | number => {
@@ -17,12 +14,6 @@ const processInput = (value: string | number | boolean): string | number => {
         return value ? "Active" : "Inactive";
     }
 };
-// console.log(processInput("BABUL HOSSAN"));
-// console.log(processInput(20));
-// console.log(processInput(true));
-// console.log(processInput(false));
-
-
 
 
 
@@ -36,7 +27,7 @@ const formatCoordinate = (
 
     return `Location: ${loactionName} (${latitude}, ${Longitude})`
 }
-// console.log (formatCoordinate([23.81, 90.41, "Dhaka"]));
+
 
 
 const concatenateArrays = <T>(...arrays: T[][]): T[] => {
@@ -46,17 +37,14 @@ const concatenateArrays = <T>(...arrays: T[][]): T[] => {
     }
     return result
 }
-// console.log(concatenateArrays([1, 2], [3, 4], [5]));
 
-// 5
+
 
 interface Course {
     title: string;
     students: number;
     isPublished: boolean;
 }
-
-
 const getPopularCourses = (
     course: Course[],
     miniStudent: number,
@@ -69,19 +57,9 @@ const getPopularCourses = (
         return false
     })
 }
-const courses = [
-    { title: "TypeScript Mastery", students: 120, isPublished: true },
-    { title: "Draft Course", students: 200, isPublished: false },
-    { title: "Basic HTML", students: 45, isPublished: true },
-    { title: "Next.js Pro", students: 85, isPublished: true }
-];
-
-// getPopularCourses(courses, 100);
-
-// console.log(getPopularCourses(courses, 80));
 
 
-// 6
+
 const pluckValues = <T, K extends keyof T>(
     items: T[],
     key: K
@@ -95,17 +73,8 @@ const pluckValues = <T, K extends keyof T>(
 
     return result;
 };
-const students = [
-    { name: "Babul", age: 25 },
-    { name: "Rahim", age: 22 },
-    { name: "Karim", age: 24 }
-];
-
-// console.log(pluckValues(students, "name"));
-// console.log(pluckValues(students, "age"));
 
 
-// 7
 
 class Employee {
     constructor(
@@ -116,7 +85,6 @@ class Employee {
         return `Employee: ${this.name}, Base Salary: ${this.baseSalary}`;
     }
 }
-
 class Manager extends Employee {
     constructor(
         name: string,
@@ -130,46 +98,19 @@ class Manager extends Employee {
     }
 }
 
-const manager = new Manager("Alice", 50000, "Engineering");
-manager.getDetails();
-manager.getRoleInfo();
-
-// console.log(manager);
 
 
 const validateAgeAsync = (age: number): Promise<string> => {
 
 const promise = new Promise<string>((resolve, reject) => {
     if (age < 18) {
-        reject("Access Denied: Must be 18 or older")
+       reject(new Error("Access Denied: Must be 18 or older"))
     }else{
         setTimeout(() => {
             resolve("Access Granted")
         }, 1000);
 
     }
-
 })
  return promise
 }
-
-const output =await validateAgeAsync(20);
-console.log(output);
-
-
-
-
-
-
-
-// Sample Input 1:
-// await validateAgeAsync(20);
-
-// Sample Output 1 (resolves after 1 second):
-// "Access Granted"
-
-// Sample Input 2:
-// await validateAgeAsync(15);
-
-// Sample Output 2 (rejects with Error):
-// Error: Access Denied: Must be 18 or older
